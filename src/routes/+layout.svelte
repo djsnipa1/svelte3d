@@ -1,4 +1,20 @@
-<div class="scene">
+<script>
+	import { onMount } from 'svelte';
+	/**
+	 * @param {{ returnValue: boolean; }} event
+	 */
+	function absorbEvent(event) {
+		event.returnValue = false;
+	}
+</script>
+
+<div
+	class="scene"
+	on:touchstart={absorbEvent}
+	on:touchend={absorbEvent}
+	on:touchcancel={absorbEvent}
+	on:touchmove={absorbEvent}
+>
 	<slot />
 </div>
 
